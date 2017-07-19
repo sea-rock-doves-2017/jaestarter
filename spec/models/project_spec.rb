@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
   let(:project) { FactoryGirl.build :project }
+  before(:each) do
+    project.amount_donated = 10
+    project.goal_amount = 50
+  end
 
   context '#validations' do
     it { is_expected.to validate_presence_of :title }
@@ -9,6 +13,11 @@ RSpec.describe Project, type: :model do
     it { is_expected.to validate_presence_of :amount_donated }
     it { is_expected.to validate_presence_of :goal_amount }
     it { is_expected.to validate_presence_of :end_date }
+    it { is_expected.to validate_presence_of :creator_id }
+  end
+
+  context '#associations' do
+    it { is_expected.to belong_to :creator }
   end
 
   context '#virtual attributes' do
