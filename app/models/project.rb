@@ -6,10 +6,10 @@ class Project < ApplicationRecord
   end
 
   def remaining_amount
-    
+    goal_amount - amount_donated
   end
 
   def remaining_time
-      Date.today - end_date
+    (Date.today - end_date.to_datetime).to_i
   end
 end

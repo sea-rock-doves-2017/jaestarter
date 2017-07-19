@@ -9,7 +9,7 @@ feature 'see projects on homepage' do
     expect(page).to have_content 'Active Projects'
     expect(page).to have_content Project.first.title
     expect(page).to have_content Project.first.percent_funded
-    expect(page).to have_content Project.first.end_date
-    expect(page).to have_content Project.first.amount_donated
+    expect(page).to have_content Project.first.remaining_time
+    expect(page).to have_content Project.first.goal_amount
   end
 end
