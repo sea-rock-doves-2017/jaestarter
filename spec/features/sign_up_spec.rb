@@ -13,7 +13,7 @@ feature 'Sign up' do
     fill_in('Password', with: 'pw')
     fill_in('Password Confirmation', with: 'pw')
 
-    click_button 'Submit'
+    click_button 'Sign up'
 
     expect(page).to have_current_path root_path
   end
