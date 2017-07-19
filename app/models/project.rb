@@ -10,6 +10,6 @@ class Project < ApplicationRecord
   end
 
   def remaining_time
-    (Date.today - end_date.to_datetime).to_i
+    (end_date.to_datetime - Date.today).to_i
   end
 end

@@ -21,7 +21,7 @@ RSpec.describe Project, type: :model do
     end
 
     it 'has an amount of time remaining until funding ends' do
-      expect(project.remaining_time).to eq(Date.today - project.end_date.to_datetime)
+      expect(project.remaining_time).to eq((project.end_date.to_datetime - Date.today).to_i)
     end
   end
 end

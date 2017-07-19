@@ -5,5 +5,6 @@ FactoryGirl.define do
     amount_donated 10
     goal_amount 50
     end_date Faker::Date.forward(3)
+    creator_id 1
   end
 end
