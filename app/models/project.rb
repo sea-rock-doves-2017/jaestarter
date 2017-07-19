@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   validates :title, :description, :amount_donated, :goal_amount, :end_date, :creator_id, presence: true
 
   def percent_funded
-    (amount_donated.to_f / goal_amount) * 100
+    ((amount_donated.to_f / goal_amount) * 100).round
   end
 
   def remaining_amount
