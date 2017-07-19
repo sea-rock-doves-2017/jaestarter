@@ -21,18 +21,18 @@ RSpec.describe UsersController, type: :controller do
   end
 
   context '#create' do
-    before(:each) { post :users }
+    before(:each) { post :create, params: { user: FactoryGirl.attributes_for(:user) } }
 
     it 'returns a status of 302' do
       expect(response).to have_http_status 302
     end
 
     it 'redirects to the projects#index page' do
-      expect(response).to redirect_to projects_path
+      expect(response).to redirect_to root_path
     end
     #
-    # it 'saves a user to the database' do
-    #   expect { post :create, user: { name: name, email: email, password: 'pw', password_confirmation: 'pw' } }.to change { User.count }.by(+1)
-    # end
+    it 'saves a user to the database' do
+      expect { post :create, params: { user: FactoryGirl.attributes_for(:user) } }.to change { User.count }.by(+1)
+    end
   end
 end
