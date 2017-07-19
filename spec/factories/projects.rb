@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :project do
-    title "MyString"
-    description "MyString"
+    title Faker::Lorem.words.join(' ').capitalize
+    description Faker::Lorem.paragraphs.join("\n")
     amount_donated 1
     goal_amount 1
-    end_date "2017-07-19 10:49:59"
+    end_date Faker::Date.forward(3)
   end
 end
