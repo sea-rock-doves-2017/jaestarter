@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index]
   resources :users, only: [:new, :create, :show]
+
+  resources :sessions, only: [:new, :create]
 end

@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature 'see projects on homepage' do
-  scenario 'user visits homepage and sees a list of currently active projects' do
+feature 'See projects on homepage' do
+  scenario 'a user visits homepage and sees a list of currently active projects' do
     10.times { FactoryGirl.create :project }
 
     visit '/'
