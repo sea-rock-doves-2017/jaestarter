@@ -26,8 +26,18 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to have_http_status 302
     end
 
-    it 'redirects to the projects#index page' do
+    it 'redirects to the projects#index page when given valid params' do
       expect(response).to redirect_to root_path
+    end
+
+    it 're-renders the #new page when given a bad email' do
+      post :create, params: { session: { email: 'nope@nope.com', password: 'pw' } }
+      expect(response).to render_template :new
+    end
+
+    it 're-renders the #new page when given a bad password' do
+      post :create, params: { session: { email: user.email, password: 'pwd' } }
+      expect(response).to render_template :new
     end
   end
 end
